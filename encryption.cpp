@@ -25,7 +25,7 @@ void encryption(const std::string &file_name, unsigned int key) {
         block = ((static_cast<unsigned int>(b1) << 24u) | static_cast<unsigned int>(b2) << 16u |
                  static_cast<unsigned int>(b3) << 8u | static_cast<unsigned int>(b4));
         xored_block = block ^ gamma;
-        shifted_block = (xored_block << 4u) | (xored_block >> 28u);
+        shifted_block = (xored_block << 2u) | (xored_block >> 30u);
         r1 = shifted_block >> 24u;
         r2 = shifted_block >> 16u;
         r3 = shifted_block >> 8u;

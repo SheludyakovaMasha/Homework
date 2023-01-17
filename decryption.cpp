@@ -21,7 +21,7 @@ void decryption(const std::string &file_name, unsigned int key) {
         b4 = i + 3 < outdata.size() ? outdata[i + 3] : 0u;
         block = ((static_cast<unsigned int>(b1) << 24u) | static_cast<unsigned int>(b2) << 16u |
                  static_cast<unsigned int>(b3) << 8u | static_cast<unsigned int>(b4));
-        shifted_block = (block >> 4u) | (block << 28u);
+        shifted_block = (block >> 2u) | (block << 30u);
         xored_block = shifted_block ^ gamma;
         result.push_back(xored_block >> 24u);
         result.push_back(xored_block >> 16u);
